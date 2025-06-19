@@ -36,71 +36,71 @@ const Index = () => {
   }, [toast]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="container mx-auto px-6 py-12">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Tempo Trend Visualizer Pro
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-light text-gray-900 mb-4 tracking-tight">
+            Tempo Trend Visualizer
           </h1>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Advanced time series analysis and forecasting platform. Upload your data and compare multiple ML models with interactive visualizations.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+            Advanced time series analysis and forecasting platform with interactive visualizations
           </p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 border-blue-500/20 backdrop-blur-sm">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-sm hover:shadow-md transition-shadow duration-200">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <div className="p-2 bg-blue-500/20 rounded-lg">
-                  <Upload className="h-6 w-6 text-blue-400" />
+                <div className="p-3 bg-blue-50 rounded-xl">
+                  <Upload className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-blue-400 text-sm font-medium">Data Upload</p>
-                  <p className="text-white text-2xl font-bold">CSV Ready</p>
+                  <p className="text-sm font-medium text-gray-500 mb-1">Data Upload</p>
+                  <p className="text-xl font-semibold text-gray-900">CSV Ready</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 border-purple-500/20 backdrop-blur-sm">
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-sm hover:shadow-md transition-shadow duration-200">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <div className="p-2 bg-purple-500/20 rounded-lg">
-                  <BarChart3 className="h-6 w-6 text-purple-400" />
+                <div className="p-3 bg-purple-50 rounded-xl">
+                  <BarChart3 className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-purple-400 text-sm font-medium">Models</p>
-                  <p className="text-white text-2xl font-bold">4 Active</p>
+                  <p className="text-sm font-medium text-gray-500 mb-1">Models</p>
+                  <p className="text-xl font-semibold text-gray-900">4 Active</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-green-500/20 to-green-600/20 border-green-500/20 backdrop-blur-sm">
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-sm hover:shadow-md transition-shadow duration-200">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <div className="p-2 bg-green-500/20 rounded-lg">
-                  <TrendingUp className="h-6 w-6 text-green-400" />
+                <div className="p-3 bg-green-50 rounded-xl">
+                  <TrendingUp className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-green-400 text-sm font-medium">Accuracy</p>
-                  <p className="text-white text-2xl font-bold">High</p>
+                  <p className="text-sm font-medium text-gray-500 mb-1">Accuracy</p>
+                  <p className="text-xl font-semibold text-gray-900">High</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-orange-500/20 to-orange-600/20 border-orange-500/20 backdrop-blur-sm">
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-sm hover:shadow-md transition-shadow duration-200">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <div className="p-2 bg-orange-500/20 rounded-lg">
-                  <FileText className="h-6 w-6 text-orange-400" />
+                <div className="p-3 bg-orange-50 rounded-xl">
+                  <FileText className="h-5 w-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-orange-400 text-sm font-medium">Reports</p>
-                  <p className="text-white text-2xl font-bold">Ready</p>
+                  <p className="text-sm font-medium text-gray-500 mb-1">Reports</p>
+                  <p className="text-xl font-semibold text-gray-900">Ready</p>
                 </div>
               </div>
             </CardContent>
@@ -110,22 +110,24 @@ const Index = () => {
         {/* Main Content */}
         <div className="space-y-8">
           {/* File Upload Section */}
-          <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-white flex items-center gap-2">
-                <Upload className="h-5 w-5" />
+          <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-gray-900 flex items-center gap-3 text-xl font-semibold">
+                <div className="p-2 bg-blue-50 rounded-lg">
+                  <Upload className="h-5 w-5 text-blue-600" />
+                </div>
                 Data Upload
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-gray-600 font-light">
                 Upload your time series dataset (CSV format) to begin analysis
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-0">
               <FileUpload onFileUpload={handleFileUpload} />
               {fileName && (
-                <div className="mt-4 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
-                  <p className="text-green-400 font-medium">File loaded: {fileName}</p>
-                  <p className="text-slate-400 text-sm">{data.length} data points ready for analysis</p>
+                <div className="mt-6 p-4 bg-green-50 border border-green-100 rounded-xl">
+                  <p className="text-green-700 font-medium mb-1">File loaded: {fileName}</p>
+                  <p className="text-green-600 text-sm font-light">{data.length} data points ready for analysis</p>
                 </div>
               )}
             </CardContent>
@@ -137,7 +139,7 @@ const Index = () => {
               <Button 
                 onClick={handleAnalyze}
                 disabled={isAnalyzing}
-                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-3 text-lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-base font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-70"
               >
                 {isAnalyzing ? 'Analyzing...' : 'Run Forecasting Analysis'}
               </Button>
@@ -146,17 +148,19 @@ const Index = () => {
 
           {/* Data Visualization */}
           {data.length > 0 && (
-            <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <BarChart3 className="h-5 w-5" />
+            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-gray-900 flex items-center gap-3 text-xl font-semibold">
+                  <div className="p-2 bg-purple-50 rounded-lg">
+                    <BarChart3 className="h-5 w-5 text-purple-600" />
+                  </div>
                   Time Series Visualization
                 </CardTitle>
-                <CardDescription className="text-slate-400">
+                <CardDescription className="text-gray-600 font-light">
                   Interactive charts showing your data and model predictions
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="pt-0">
                 <DataVisualization data={data} isAnalyzing={isAnalyzing} />
               </CardContent>
             </Card>
@@ -164,17 +168,19 @@ const Index = () => {
 
           {/* Model Comparison */}
           {data.length > 0 && !isAnalyzing && (
-            <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <TrendingUp className="h-5 w-5" />
+            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-gray-900 flex items-center gap-3 text-xl font-semibold">
+                  <div className="p-2 bg-green-50 rounded-lg">
+                    <TrendingUp className="h-5 w-5 text-green-600" />
+                  </div>
                   Model Performance Comparison
                 </CardTitle>
-                <CardDescription className="text-slate-400">
+                <CardDescription className="text-gray-600 font-light">
                   Compare accuracy metrics across all forecasting models
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="pt-0">
                 <ModelComparison data={data} />
               </CardContent>
             </Card>

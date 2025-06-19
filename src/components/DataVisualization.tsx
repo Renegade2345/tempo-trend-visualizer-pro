@@ -38,13 +38,13 @@ const DataVisualization = ({ data, isAnalyzing }: DataVisualizationProps) => {
 
   if (isAnalyzing) {
     return (
-      <div className="space-y-4">
-        <Skeleton className="h-4 w-1/4 bg-slate-700" />
-        <Skeleton className="h-80 w-full bg-slate-700" />
+      <div className="space-y-6">
+        <Skeleton className="h-4 w-1/4 bg-gray-200 rounded-lg" />
+        <Skeleton className="h-80 w-full bg-gray-200 rounded-xl" />
         <div className="flex space-x-4">
-          <Skeleton className="h-4 w-20 bg-slate-700" />
-          <Skeleton className="h-4 w-20 bg-slate-700" />
-          <Skeleton className="h-4 w-20 bg-slate-700" />
+          <Skeleton className="h-4 w-20 bg-gray-200 rounded-lg" />
+          <Skeleton className="h-4 w-20 bg-gray-200 rounded-lg" />
+          <Skeleton className="h-4 w-20 bg-gray-200 rounded-lg" />
         </div>
       </div>
     );
@@ -54,37 +54,40 @@ const DataVisualization = ({ data, isAnalyzing }: DataVisualizationProps) => {
     <div className="w-full h-80">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
           <XAxis 
             dataKey="index" 
-            stroke="#9CA3AF"
-            tick={{ fill: '#9CA3AF' }}
+            stroke="#6B7280"
+            tick={{ fill: '#6B7280', fontSize: 12 }}
+            axisLine={{ stroke: '#E5E7EB' }}
           />
           <YAxis 
-            stroke="#9CA3AF"
-            tick={{ fill: '#9CA3AF' }}
+            stroke="#6B7280"
+            tick={{ fill: '#6B7280', fontSize: 12 }}
+            axisLine={{ stroke: '#E5E7EB' }}
           />
           <Tooltip 
             contentStyle={{
-              backgroundColor: '#1F2937',
-              border: '1px solid #374151',
-              borderRadius: '8px',
-              color: '#F9FAFB'
+              backgroundColor: 'white',
+              border: '1px solid #E5E7EB',
+              borderRadius: '12px',
+              color: '#111827',
+              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
             }}
           />
           <Legend />
           <Line 
             type="monotone" 
             dataKey="actual" 
-            stroke="#3B82F6" 
+            stroke="#2563EB" 
             strokeWidth={3}
             name="Actual Data"
-            dot={{ fill: '#3B82F6', strokeWidth: 2, r: 3 }}
+            dot={{ fill: '#2563EB', strokeWidth: 2, r: 3 }}
           />
           <Line 
             type="monotone" 
             dataKey="linearRegression" 
-            stroke="#10B981" 
+            stroke="#059669" 
             strokeWidth={2}
             strokeDasharray="5 5"
             name="Linear Regression"
@@ -93,7 +96,7 @@ const DataVisualization = ({ data, isAnalyzing }: DataVisualizationProps) => {
           <Line 
             type="monotone" 
             dataKey="arima" 
-            stroke="#F59E0B" 
+            stroke="#D97706" 
             strokeWidth={2}
             strokeDasharray="3 3"
             name="ARIMA"
@@ -102,7 +105,7 @@ const DataVisualization = ({ data, isAnalyzing }: DataVisualizationProps) => {
           <Line 
             type="monotone" 
             dataKey="prophet" 
-            stroke="#EF4444" 
+            stroke="#DC2626" 
             strokeWidth={2}
             strokeDasharray="7 3"
             name="Prophet"
@@ -111,7 +114,7 @@ const DataVisualization = ({ data, isAnalyzing }: DataVisualizationProps) => {
           <Line 
             type="monotone" 
             dataKey="exponentialSmoothing" 
-            stroke="#8B5CF6" 
+            stroke="#7C3AED" 
             strokeWidth={2}
             strokeDasharray="4 4"
             name="Exponential Smoothing"

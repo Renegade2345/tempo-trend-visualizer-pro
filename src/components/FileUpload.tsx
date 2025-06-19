@@ -90,30 +90,30 @@ const FileUpload = ({ onFileUpload }: FileUploadProps) => {
   return (
     <div
       {...getRootProps()}
-      className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
+      className={`border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all duration-200 ${
         dropzoneActive
-          ? 'border-blue-400 bg-blue-500/10'
-          : 'border-slate-600 hover:border-slate-500 bg-slate-700/30'
+          ? 'border-blue-300 bg-blue-50/50'
+          : 'border-gray-200 hover:border-gray-300 bg-gray-50/50'
       }`}
     >
       <input {...getInputProps()} />
-      <div className="flex flex-col items-center space-y-4">
-        <div className={`p-4 rounded-full ${
-          dropzoneActive ? 'bg-blue-500/20' : 'bg-slate-600/20'
+      <div className="flex flex-col items-center space-y-6">
+        <div className={`p-4 rounded-2xl transition-colors duration-200 ${
+          dropzoneActive ? 'bg-blue-100' : 'bg-gray-100'
         }`}>
           <Upload className={`h-8 w-8 ${
-            dropzoneActive ? 'text-blue-400' : 'text-slate-400'
+            dropzoneActive ? 'text-blue-600' : 'text-gray-500'
           }`} />
         </div>
         <div>
-          <p className="text-lg font-medium text-white">
+          <p className="text-lg font-medium text-gray-900 mb-2">
             {dropzoneActive ? 'Drop your CSV file here' : 'Drag & drop your CSV file here'}
           </p>
-          <p className="text-slate-400 mt-2">
+          <p className="text-gray-500 font-light">
             or click to browse files
           </p>
         </div>
-        <div className="text-sm text-slate-500">
+        <div className="text-sm text-gray-400 font-light">
           Supported format: CSV files only
         </div>
       </div>
