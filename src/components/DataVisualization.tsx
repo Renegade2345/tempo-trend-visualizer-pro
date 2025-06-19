@@ -19,17 +19,17 @@ const DataVisualization = ({ data, isAnalyzing }: DataVisualizationProps) => {
 
     const primaryColumn = numericColumns[0] || 'value';
     
-    // Generate synthetic forecast data for demonstration
+    // Generate synthetic forecast data for the four models
     const forecastData = data.map((item, index) => {
       const baseValue = item[primaryColumn] || Math.random() * 100;
       
       return {
         index: index + 1,
         actual: baseValue,
-        linearRegression: baseValue + Math.sin(index * 0.1) * 5 + Math.random() * 3,
-        arima: baseValue + Math.cos(index * 0.15) * 4 + Math.random() * 2,
-        prophet: baseValue + Math.sin(index * 0.2) * 3 + Math.random() * 2.5,
-        exponentialSmoothing: baseValue + Math.sin(index * 0.08) * 6 + Math.random() * 4,
+        arima: baseValue + Math.sin(index * 0.1) * 5 + Math.random() * 3,
+        sarima: baseValue + Math.cos(index * 0.15) * 4 + Math.random() * 2.5,
+        prophet: baseValue + Math.sin(index * 0.2) * 3 + Math.random() * 2,
+        lstm: baseValue + Math.sin(index * 0.08) * 6 + Math.random() * 4,
       };
     });
 
@@ -39,12 +39,13 @@ const DataVisualization = ({ data, isAnalyzing }: DataVisualizationProps) => {
   if (isAnalyzing) {
     return (
       <div className="space-y-6">
-        <Skeleton className="h-4 w-1/4 bg-gray-200 rounded-lg" />
-        <Skeleton className="h-80 w-full bg-gray-200 rounded-xl" />
+        <Skeleton className="h-4 w-1/4 bg-gray-100 rounded-lg" />
+        <Skeleton className="h-80 w-full bg-gray-100 rounded-xl" />
         <div className="flex space-x-4">
-          <Skeleton className="h-4 w-20 bg-gray-200 rounded-lg" />
-          <Skeleton className="h-4 w-20 bg-gray-200 rounded-lg" />
-          <Skeleton className="h-4 w-20 bg-gray-200 rounded-lg" />
+          <Skeleton className="h-4 w-20 bg-gray-100 rounded-lg" />
+          <Skeleton className="h-4 w-20 bg-gray-100 rounded-lg" />
+          <Skeleton className="h-4 w-20 bg-gray-100 rounded-lg" />
+          <Skeleton className="h-4 w-20 bg-gray-100 rounded-lg" />
         </div>
       </div>
     );
@@ -54,70 +55,71 @@ const DataVisualization = ({ data, isAnalyzing }: DataVisualizationProps) => {
     <div className="w-full h-80">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" />
           <XAxis 
             dataKey="index" 
-            stroke="#6B7280"
+            stroke="#9CA3AF"
             tick={{ fill: '#6B7280', fontSize: 12 }}
             axisLine={{ stroke: '#E5E7EB' }}
           />
           <YAxis 
-            stroke="#6B7280"
+            stroke="#9CA3AF"
             tick={{ fill: '#6B7280', fontSize: 12 }}
             axisLine={{ stroke: '#E5E7EB' }}
           />
           <Tooltip 
             contentStyle={{
-              backgroundColor: 'white',
-              border: '1px solid #E5E7EB',
-              borderRadius: '12px',
+              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+              border: 'none',
+              borderRadius: '16px',
               color: '#111827',
-              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+              backdropFilter: 'blur(16px)'
             }}
           />
           <Legend />
           <Line 
             type="monotone" 
             dataKey="actual" 
-            stroke="#2563EB" 
+            stroke="#007AFF" 
             strokeWidth={3}
             name="Actual Data"
-            dot={{ fill: '#2563EB', strokeWidth: 2, r: 3 }}
-          />
-          <Line 
-            type="monotone" 
-            dataKey="linearRegression" 
-            stroke="#059669" 
-            strokeWidth={2}
-            strokeDasharray="5 5"
-            name="Linear Regression"
-            dot={false}
+            dot={{ fill: '#007AFF', strokeWidth: 2, r: 3 }}
           />
           <Line 
             type="monotone" 
             dataKey="arima" 
-            stroke="#D97706" 
-            strokeWidth={2}
-            strokeDasharray="3 3"
+            stroke="#34C759" 
+            strokeWidth={2.5}
+            strokeDasharray="5 5"
             name="ARIMA"
             dot={false}
           />
           <Line 
             type="monotone" 
+            dataKey="sarima" 
+            stroke="#FF9500" 
+            strokeWidth={2.5}
+            strokeDasharray="3 3"
+            name="SARIMA"
+            dot={false}
+          />
+          <Line 
+            type="monotone" 
             dataKey="prophet" 
-            stroke="#DC2626" 
-            strokeWidth={2}
+            stroke="#FF3B30" 
+            strokeWidth={2.5}
             strokeDasharray="7 3"
             name="Prophet"
             dot={false}
           />
           <Line 
             type="monotone" 
-            dataKey="exponentialSmoothing" 
-            stroke="#7C3AED" 
-            strokeWidth={2}
+            dataKey="lstm" 
+            stroke="#AF52DE" 
+            strokeWidth={2.5}
             strokeDasharray="4 4"
-            name="Exponential Smoothing"
+            name="LSTM"
             dot={false}
           />
         </LineChart>
